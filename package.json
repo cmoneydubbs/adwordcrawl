@@ -1,0 +1,20 @@
+{
+  "name": "adwordcrawl",
+  "version": "0.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.5"
+  },
+  "dependencies": {
+    "escape-string-regexp": "^1.0.4",
+    "jquery": "^2.2.0",
+    "promise": "^7.1.1",
+    "socket.io": "^1.4.5"
+  }
+}

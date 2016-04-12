@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title></title>
+	<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');</script>
+	<script>window.appUi = require('./appUi.js');</script>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+	
+
+</head>
+<body>
+
+<center>
+<div class="holder" id="holder1">
+  <center><span>Drag your input CSV here.</span></center>
+</div>
+
+<div class="holder" id="holder2">
+  <center><span>Drag your output CSV here.</span></center>
+</div>
+
+<center><button onclick="loadPaths(input,output)">Check CSV</button></center>
+<center><button onclick="appUi.startScrape(input,output)">Start Scrape</button></center>
+</center>
+
+<script>
+  var input = '';
+  var output = '';
+
+
+
+  var loadPaths = function(input,output){ 
+    console.log('button clicked');
+    if(input == ''){
+      alert('Please drag and drop a file into the input box.');
+    }else{
+      alert(input+' is the input file');
+    };
+
+    if(output == ''){
+      alert('Please drag and drop a file into the output box.');
+    }else{
+      alert(output+' is the output file');
+    };
+  };
+
+
+
+  var holder1 = document.getElementById('holder1');
+  holder1.ondragover = function () {
+    return false;
+  };
+  holder1.ondragleave = holder1.ondragend = function () {
+    return false;
+  };
+  holder1.ondrop = function (e) {
+    e.preventDefault();
+    var file = e.dataTransfer.files[0];
+    input = file.path;
+    //console.log('File you dragged here is', file.path);
+     //appUi.fileInput(file.path);
+    return false;
+   
+  };
+
+  var holder2 = document.getElementById('holder2');
+  holder2.ondragover = function () {
+    return false;
+  };
+  holder2.ondragleave = holder2.ondragend = function () {
+    return false;
+  };
+  holder2.ondrop = function (e) {
+    e.preventDefault();
+    var file = e.dataTransfer.files[0];
+    output = file.path;
+    //console.log('File you dragged here is', file.path);
+     //appUi.fileOutput(file.path);
+    return false;
+   
+  };
+
+
+</script>
+
+</body>
+</html>
